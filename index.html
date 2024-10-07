@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Aboriginal and Torres Strait Islander people in Australia</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class = "main_page">
+
+        <div class = "pure-g">
+            <div class = "pure-u-1-1">
+                <h1>Indigenous Language Vitality and Population insights</h1>
+                <p>This collection of data has been provided by the Australian Bureau of Statistics. Key data includes the distribution of Indigenous languages, 
+                    assistance needs, language proficiency, and labour force participation, sourced from Indigenous status datasets, housing, education, 
+                    and language proficiency tables. This visualization shows the distribution of Indigenous languages, their vitality, and related socio-economic 
+                    factors across Australia. It visualizes key aspects like population concentration, language proficiency, and labour force status, using a mix 
+                    of maps, network diagrams, and other charts to provide insights into the cultural and demographic landscape of Australia's Indigenous communities</p>         
+            </div>
+        </div>
+
+        <div class = "pure-g">
+            <div class="pure-u-1-1">
+                <div id="viz1" class="viz-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p>This visualization combines choropleth and dot maps to showcase the Indigenous nations' lands and the languages spoken across Australia.
+                     The choropleth layer highlights the traditional territories of various Indigenous groups, while the dot overlay represents 
+                     the population density of language speakers within these regions. This blend provides a comprehensive view of both the geographic distribution 
+                     of Indigenous peoples and the vitality of the languages spoken on their lands.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var spec1 = "./Visualisations/proportionalsymbol.json";
+        var specVis2 = "./Visualisations/genderLine.json";
+        var specVis3 = "./Visualisations/InteractiveScatter.json";
+        var specVis4 = "./Visualisations/choroplethMetroMelb.json";
+        var specVis5 = "./Visualisations/dotplot.json";
+    
+        vegaEmbed('#viz1', spec1, { "actions": false }).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    
+        vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    
+        vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    
+        vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    
+        vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+</body>
+</html>
