@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Total Number of Aboriginal and Torres Strait Islander People by State",
-    "width": "container",
-    "height": 300,
+    "width": 600,
+    "height": 600,
     "projection": {
       "type": "mercator"
     },

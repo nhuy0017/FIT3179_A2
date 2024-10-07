@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Males",
+    "data": {
+        "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179/main/Homework10/Males.csv"
+    },
+    "params": [
+        {
+            "name": "AgeRangeSelection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "All Aboriginal and Torres Strait Islander people",
+                    "Under_15_years",
+                    "15to24_years",
+                    "25to34_years",
+                    "35to44_years",
+                    "45to54_years",
+                    "55to64_years",
+                    "65_years_and_over"
+                ],
+                "name": "Select Age Range: "
+            },
+            "value": "All Aboriginal and Torres Strait Islander people"
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.age_range == AgeRangeSelection"
+        }
+    ],
+    "encoding": {
+        "theta": {
+            "field": "value", 
+            "type": "quantitative",
+            "stack": true
+        },
+        "color": {
+            "field": "category", 
+            "type": "nominal",
+            "scale": {"scheme": "category10"},
+            "title": "Category"
+        },
+        "tooltip": [
+            {"field": "category", "type": "nominal", "title": "Assistance Need"},
+            {"field": "value", "type": "quantitative", "title": "Count of Persons"}
+        ]
+    },
+    "layer": [
+        {
+            "mark": {"type": "arc", "outerRadius": 80, "innerRadius": 0}
+        },
+        {
+            "mark": {
+                "type": "text",
+                "radius": 90
+              
+            },
+            "encoding": {
+                "text": {"field": "value", "type": "quantitative"}
+            }
+        }
+    ]
+}

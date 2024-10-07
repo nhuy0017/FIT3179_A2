@@ -41,7 +41,7 @@
         </div>
 
         <div class="pure-g">
-            <div class="pure-u-1-1">
+            <div class="pure-u-1-2">
                 <div class="description description-right">
                     <h2>Population Distribution</h2>
                     <p>This visualization depicts the total number of Aboriginal and Torres Strait Islander people across different states in Australia. 
@@ -51,22 +51,45 @@
                         and distribution of Indigenous populations, fostering awareness and understanding of their significance within the broader Australian context.</p>
                 </div>
             </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+            <div class="pure-u-1-2">
                 <div id="viz2" class="viz-container"></div> <!-- Container for the Choropleth Map -->
             </div>
         </div>
 
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h3>Core Activities Need for Assistance by Age(s)</h3>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div id="piechartallppl"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="piechartfemales"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="piechartmales"></div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p>This pie chart visualization displays the proportions of assistance needs among Indigenous peoples, specifically focusing on Aboriginal 
+                    and Torres Strait Islander communities. The chart categorizes individuals based on their assistance requirements: those who need support 
+                    for core activities, those who require assistance but do not have Indigenous status, and those who do not require assistance. 
+                    By illustrating these distinct categories, the visualization provides insights into the varying levels of support needed within 
+                    the Indigenous population. This representation highlights the importance of understanding assistance needs to inform targeted interventions 
+                    and policies aimed at improving the well-being of Indigenous Australians</p>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
         var spec1 = "./Visualisations/proportionalsymbol.json";
-        var spec2 = "./Visualisations/choloreth.json";  // Path to your Choropleth Map specification
-        var specVis3 = "./Visualisations/InteractiveScatter.json";
-        var specVis4 = "./Visualisations/choroplethMetroMelb.json";
-        var specVis5 = "./Visualisations/dotplot.json";
-    
+        var spec2 = "./Visualisations/choloreth.json";
+        var spec3 = "./Visualisations/piechartallppl.json";
+        var spec4 = "./Visualisations/piechartfemales.json";
+        var spec5 = "./Visualisations/piechartmales.json";
         // Embed the Proportional Symbol Map
         vegaEmbed('#viz1', spec1, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -74,6 +97,18 @@
     
         // Embed the Choropleth Map
         vegaEmbed('#viz2', spec2, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#piechartallppl', spec3, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#piechartfemales', spec4, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#piechartmales', spec5, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     
