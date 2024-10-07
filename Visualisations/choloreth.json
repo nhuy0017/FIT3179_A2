@@ -1,0 +1,88 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total Number of Aboriginal and Torres Strait Islander People by State",
+    "width": "container",
+    "height": 300,
+    "projection": {
+      "type": "mercator"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/australia-states.topojson.json",
+      "format": {
+        "type": "topojson",
+        "feature": "STE_2011_AUST"
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "geoshape",
+          "fill": "gainsboro",
+          "stroke": "white"
+        }
+      },
+      {
+        "transform": [
+          {
+            "lookup": "properties.STE_NAME11",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/population_count.csv",
+                "format": {
+                  "type": "csv"
+                }
+              },
+              "key": "state_territory",
+              "fields": [
+                "total_indigenous",
+                "count_of_aboriginal",
+                "count_of_torres_strait_islander",
+                "count_of_bot"
+              ]
+            }
+          }
+        ],
+        "mark": {
+          "type": "geoshape"
+        },
+        "encoding": {
+          "color": {
+            "field": "total_indigenous",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 300000],
+              "range": ["#f7fbff", "#08306b"]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "properties.STE_NAME11",
+              "type": "nominal",
+              "title": "State"
+            },
+            {
+              "field": "count_of_aboriginal",
+              "type": "quantitative",
+              "title": "Number of Aboriginal"
+            },
+            {
+              "field": "count_of_torres_strait_islander",
+              "type": "quantitative",
+              "title": "Number of TSI"
+            },
+            {
+              "field": "count_of_bot",
+              "type": "quantitative",
+              "title": "Number of Both"
+            }
+          ]
+        }
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": null
+      }
+    }
+  }
+  

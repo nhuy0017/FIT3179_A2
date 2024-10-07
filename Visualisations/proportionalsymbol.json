@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/australia-states.topojson.json",
+          "format": {"type": "topojson", "feature": "STE_2011_AUST"}
+        },
+        "mark": "geoshape",
+        "encoding": {
+          "color": {"value": "#f0f0f0"}
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/final_austlang_dataset.csv",
+          "format": {"type": "csv"}
+        },
+        "mark": "circle",
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "size": {
+            "field": "languages_count", 
+            "type": "quantitative", 
+            "scale": {"range": [100, 1000]}
+          },
+          "color": {"value": "#08306b"},
+          "tooltip": [
+            {"field": "state_territory", "type": "nominal", "title": "State"},
+            {"field": "languages_count", "type": "quantitative", "title": "Languages Count"},
+            {"field": "languages_list", "type": "nominal", "title": "Languages Spoken"}
+          ]
+        }
+      }
+    ],
+    "projection": {
+      "type": "mercator"
+    },
+    "width": 800,
+    "height": 600
+  }
+  

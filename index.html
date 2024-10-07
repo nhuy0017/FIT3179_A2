@@ -2,32 +2,30 @@
 <html>
 
 <head>
-    <title>Aboriginal and Torres Strait Islander people in Australia</title>
+    <title>Aboriginal and Torres Strait Islander People in Australia</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-    <!-- Import vega-embed -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <!-- Import pure.css -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class = "main_page">
+    <div class="main_page">
 
-        <div class = "pure-g">
-            <div class = "pure-u-1-1">
-                <h1>Indigenous Language Vitality and Population insights</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Indigenous Language Vitality and Population Insights</h1>
                 <p>This collection of data has been provided by the Australian Bureau of Statistics. Key data includes the distribution of Indigenous languages, 
                     assistance needs, language proficiency, and labour force participation, sourced from Indigenous status datasets, housing, education, 
                     and language proficiency tables. This visualization shows the distribution of Indigenous languages, their vitality, and related socio-economic 
                     factors across Australia. It visualizes key aspects like population concentration, language proficiency, and labour force status, using a mix 
-                    of maps, network diagrams, and other charts to provide insights into the cultural and demographic landscape of Australia's Indigenous communities</p>         
+                    of maps, network diagrams, and other charts to provide insights into the cultural and demographic landscape of Australia's Indigenous communities.</p>         
             </div>
         </div>
 
-        <div class = "pure-g">
+        <div class="pure-g">
             <div class="pure-u-1-1">
                 <div id="viz1" class="viz-container"></div>
             </div>
@@ -42,33 +40,141 @@
             </div>
         </div>
 
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="description description-right">
+                    <h2>Population Distribution</h2>
+                    <p>This visualization depicts the total number of Aboriginal and Torres Strait Islander people across different states in Australia. 
+                        Using a Choropleth Map, it visually represents the population distribution, allowing for a clear understanding of the demographic landscape. 
+                        Each state is colored based on the total Indigenous population, with deeper shades indicating higher numbers. Additionally, tooltips provide detailed insights, 
+                        displaying the counts of Aboriginal people, Torres Strait Islander people, and those identifying as both. This visualization aims to highlight the diversity 
+                        and distribution of Indigenous populations, fostering awareness and understanding of their significance within the broader Australian context.</p>
+                </div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="viz2" class="viz-container"></div> <!-- Container for the Choropleth Map -->
+            </div>
+        </div>
+
     </div>
 
     <script type="text/javascript">
         var spec1 = "./Visualisations/proportionalsymbol.json";
-        var specVis2 = "./Visualisations/genderLine.json";
+        var spec2 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total Number of Aboriginal and Torres Strait Islander People by State",
+    "width": "container",
+    "height": 300,
+    "projection": {
+      "type": "mercator"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/australia-states.topojson.json",
+      "format": {
+        "type": "topojson",
+        "feature": "STE_2011_AUST"
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "geoshape",
+          "fill": "gainsboro",
+          "stroke": "white"
+        }
+      },
+      {
+        "transform": [
+          {
+            "lookup": "properties.STE_NAME11",
+            "from": {
+              "data": {
+                "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/population_count.csv",
+                "format": {
+                  "type": "csv"
+                }
+              },
+              "key": "state_territory",
+              "fields": [
+                "total_indigenous",
+                "count_of_aboriginal",
+                "count_of_torres_strait_islander",
+                "count_of_bot"
+              ]
+            }
+          }
+        ],
+        "mark": {
+          "type": "geoshape"
+        },
+        "encoding": {
+          "color": {
+            "field": "total_indigenous",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0, 300000],
+              "range": ["#f7fbff", "#08306b"]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "properties.STE_NAME11",
+              "type": "nominal",
+              "title": "State"
+            },
+            {
+              "field": "count_of_aboriginal",
+              "type": "quantitative",
+              "title": "Number of Aboriginal"
+            },
+            {
+              "field": "count_of_torres_strait_islander",
+              "type": "quantitative",
+              "title": "Number of TSI"
+            },
+            {
+              "field": "count_of_bot",
+              "type": "quantitative",
+              "title": "Number of Both"
+            }
+          ]
+        }
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": null
+      }
+    }
+  }
+    // Path to your Choropleth Map specification
         var specVis3 = "./Visualisations/InteractiveScatter.json";
         var specVis4 = "./Visualisations/choroplethMetroMelb.json";
         var specVis5 = "./Visualisations/dotplot.json";
     
+        // Embed the Proportional Symbol Map
         vegaEmbed('#viz1', spec1, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     
-        vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        // Embed the Choropleth Map
+        vegaEmbed('#viz2', spec2, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     
+        // Embed additional visualizations if needed
         vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     
         vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     
         vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
-          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
 </body>
