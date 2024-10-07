@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Heat Map of Labour Force Status of Male",
+  "data": {
+    "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/workmales.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "category",
+      "type": "nominal",
+      "title": "Labour Force Status",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "age_bin",
+      "type": "ordinal",
+      "title": "Age Bin"
+    },
+    "color": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Count of Persons",
+      "scale": {
+        "scheme": "tealblues"
+      }
+    },
+    "tooltip": [
+      {"field": "category", "type": "nominal", "title": "Labour Force Status"},
+      {"field": "age_bin", "type": "ordinal", "title": "Age Bin"},
+      {"field": "count", "type": "quantitative", "title": "Count of Persons"}
+    ]
+  },
+  "width": 600,
+  "height": 400,
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}
