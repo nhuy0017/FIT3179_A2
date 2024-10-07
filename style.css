@@ -9,19 +9,14 @@ font-weight: 900;
 }
 
 body {
-background-color: white;
+background-color: lightgray;
 }
 
-.main_page {
-width: 750px;
+.page {
 background-color: white;
 margin: auto;
-padding: 100px;
+padding: 0px;
 padding-top: 35px;
-}
-
-.vis-container {
-width: 100%;
 }
 
 .description h2,
