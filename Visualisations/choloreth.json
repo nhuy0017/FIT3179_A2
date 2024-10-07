@@ -71,7 +71,7 @@
               "title": "Number of TSI"
             },
             {
-              "field": "count_of_bot",
+              "field": "count_of_both",
               "type": "quantitative",
               "title": "Number of Both"
             }
