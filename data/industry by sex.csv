@@ -1,0 +1,39 @@
+﻿sex,industry,count
+Male,"Agriculture, forestry and fishing",3435.00
+Male,Mining,5322.00
+Male,Manufacturing,6510.00
+Male,"Electricity, gas, water and waste services",1550.00
+Male,Construction,14439.00
+Male,Wholesale trade,2052.00
+Male,Retail trade,6381.00
+Male,Accommodation and food services,4871.00
+Male,"Transport, postal and warehousing",5630.00
+Male,Information media and telecommunications,941.00
+Male,Financial and insurance services,809.00
+Male,"Rental, hiring and real estate services",718.00
+Male,"Professional, scientific and technical services",2203.00
+Male,Administrative and support services,3156.00
+Male,Public administration and safety,9952.00
+Male,Education and training,4389.00
+Male,Health care and social assistance,5659.00
+Male,Arts and recreation services,1878.00
+Male,Other services,4492.00
+Female,"Agriculture, forestry and fishing",965.00
+Female,Mining,1275.00
+Female,Manufacturing,1904.00
+Female,"Electricity, gas, water and waste services",360.00
+Female,Construction,1545.00
+Female,Wholesale trade,832.00
+Female,Retail trade,9590.00
+Female,Accommodation and food services,8479.00
+Female,"Transport, postal and warehousing",1807.00
+Female,Information media and telecommunications,716.00
+Female,Financial and insurance services,1665.00
+Female,"Rental, hiring and real estate services",1100.00
+Female,"Professional, scientific and technical services",2735.00
+Female,Administrative and support services,3702.00
+Female,Public administration and safety,9689.00
+Female,Education and training,12425.00
+Female,Health care and social assistance,19948.00
+Female,Arts and recreation services,1468.00
+Female,Other services,3625.00
