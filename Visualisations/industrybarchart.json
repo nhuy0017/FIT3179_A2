@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "An industry distribution chart for Aboriginal and Torres Strait Islander people by sex.",
+  "data": { "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/industry%20by%20sex.csv"},
+  "hconcat": [{
+    "transform": [{
+      "filter": {"field": "sex", "equal": "Female"}
+    }],
+    "title": "Female",
+    "mark": {"type": "bar", "tooltip": true},
+    "encoding": {
+      "y": {
+        "field": "industry", "axis": null, "sort": "descending"
+      },
+      "x": {
+        "aggregate": "sum", "field": "count",
+        "title": "count",
+        "axis": {"format": "s"},
+        "sort": "descending"
+      },
+      "color": {
+        "field": "sex",
+        "scale": {"range": ["#675193", "#ca8861"]},
+        "legend": {"orient": "right"}
+      },
+      "tooltip": [
+        {"field": "industry", "type": "nominal", "title": "Industry"},
+        {"field": "count", "type": "quantitative", "title": "Count"},
+        {"field": "sex", "type": "nominal", "title": "Sex"}
+      ]
+    }
+  }, {
+    "width": 20,
+    "view": {"stroke": null},
+    "mark": {
+      "type": "text",
+      "align": "center"
+    },
+    "encoding": {
+      "y": {"field": "industry", "type": "ordinal", "axis": null, "sort": "descending"},
+      "text": {"field": "industry"}
+    }
+  }, {
+    "transform": [{
+      "filter": {"field": "sex", "equal": "Male"}
+    }],
+    "title": "Male",
+    "mark": {"type": "bar", "tooltip": true},
+    "encoding": {
+      "y": {
+        "field": "industry", "title": null,
+        "axis": null, "sort": "descending"
+      },
+      "x": {
+        "aggregate": "sum", "field": "count",
+        "title": "count",
+        "axis": {"format": "s"}
+      },
+      "color": {
+        "field": "sex",
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "industry", "type": "nominal", "title": "Industry"},
+        {"field": "count", "type": "quantitative", "title": "Count"},
+        {"field": "sex", "type": "nominal", "title": "Sex"}
+      ]
+    }
+  }],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}

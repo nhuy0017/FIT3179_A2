@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 950,
+  "height": 650,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "padding": { "top": 20, "left": 60, "right": 60, "bottom": 0 },
+  
+  "params": [
+    {
+      "name": "selectedState",
+      "value": "NSW", 
+      "bind": {
+        "input": "select",
+        "options": [
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS",
+          "NT",
+          "ACT"
+        ],
+        "name": "Select State: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/AndyLiu010802/FIT3179/main/georef-australia-state@public.json",
+        "format": {
+          "type": "topojson",
+          "feature": "georef-australia-state@public"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.ste_iso3166_code == selectedState"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black",
+        "strokeWidth": 1,
+        "fill": "lightgrey"
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.ste_name[0]",
+            "type": "nominal",
+            "title": "State Name"
+          },
+          {
+            "field": "properties.ste_iso3166_code",
+            "type": "nominal",
+            "title": "State Code"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/cleaned_languages_data.csv",
+        "format": {"type": "csv"}
+      },
+      "transform": [
+        {
+          "filter": "datum.state_territory === selectedState"
+        }
+      ],
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "approximate_longitude_of_language_variety",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "approximate_latitude_of_language_variety",
+          "type": "quantitative"
+        },
+        "size": {
+          "value": 100
+        },
+        "color": {"value": "#08306b"},
+        "tooltip": [
+          {"field": "language_name", "type": "nominal", "title": "Language"},
+          {"field": "language_synonym", "type": "nominal", "title": "Synonym"},
+          {"field": "state_territory", "type": "nominal", "title": "States Spoken"}
+        ]
+      }
+    }
+  ]
+}
