@@ -71,10 +71,10 @@
                 <div id="piechartallppl"></div>
             </div> -->
             <div class="pure-u-1-2">
-                <div id="piechartfemales"></div>
+                <div id="piechartmales" class="viz-container"></div>
             </div>
             <div class="pure-u-1-2">
-                <div id="piechartmales"></div>
+                <div id="piechartfemales" class="viz-container"></div>
             </div>
             <div class="pure-u-1">
                 <p>This pie chart visualization displays the proportions of assistance needs among Indigenous peoples, specifically focusing on Aboriginal 
@@ -88,26 +88,65 @@
 
 
 
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <h4>Labour Force Status</h4>
+        <div id="heatmap" class="pure-g">
+            <div class="pure-u-1">
+                <h2>Labour Force Status</h2>
                 <p>This heat map visualization highlights the relationship between labour force status and age groups among Indigenous Australians. 
                     It categorizes individuals based on four key labour force statuses: Employed, Unemployed, Not in the Labour Force, 
                     and Labour Force Status Not Stated. The age groups are divided into 5-year intervals, ranging from 15 to 64 years old. 
                     Each cell in the heat map represents the count of persons for a specific age group and labour force status, with the color intensity 
                     indicating the size of the group. This visual tool provides an at-a-glance understanding of how labour force participation varies 
                     across different age ranges, helping to identify trends and potential areas of focus for employment policies and community programs 
-                    targeting Indigenous populations.</p>
-            </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <div id="heatmapfemales"></div>
+                    targeting Indigenous populations. <a>Hover over the grid to reveal tooltips with additional details.</a></p>
             </div>
             <div class="pure-u-1-2">
-                <div id="heatmapmales"></div>
+                <div id="heatmapmales" class="viz-container"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="heatmapfemales" class="viz-container"></div>
             </div>
         </div>
+
+        <div id="barchart" class="pure-g">
+            <div class="pure-u-1">
+                <h2>Careers: Occupations and Industries</h2>
+            </div>
+            <div class = "pure-u-1-2">
+                <div id="industrybarchart" class="viz-container"></div>
+
+                <div id="occupationbarchart" class="viz-container"></div>
+            </div>
+            <div class = "pure-u-1-2">
+                <p>These bar charts provide a breakdown of Australian Indigenous and Torres Strait Islander people by sex, 
+                    across different industries and occupations. They highlight the workforce participation of Indigenous men and women, 
+                    revealing gender representation trends across various sectors. By comparing male and female employment in different industries, 
+                    the charts help identify workforce patterns, gender disparities, and areas for promoting more balanced employment opportunities for Indigenous communities. 
+                    <a>Hover over the bars to reveal tooltips with additional details.</a></p>
+            </div>
+        </div>
+
+        <div id ="rada" class="pure-g">
+            <div class="pure-u-1">
+                <h2>Education of Indigenous people</h2>
+                <p>The visualization provides information about the Indigenous languages in Australia. 
+                   It showcases the traditional territories of various Indigenous groups and the population density of language speakers within these regions.
+                   <a>Press the button to change the view perspective. Hover over the dots to reveal tooltips with additional details.</a></p>
+            </div>
+            <div class="pure-u-1-1">
+                <div id="defaultView2">
+                    <div id="radar" class="viz-container"></div>
+                </div>
+                <div id="detailedView2" style="display: none;">
+                    <div id="radar1" class="viz-container"></div>
+                </div>
+                <button id="switchButton2" class="pure-button">Switch to Area View</button>
+            </div>           
+            
+        </div>
+
+
+
+
 
         </div>
 
@@ -120,10 +159,19 @@
         var spec6 = "./Visualisations/heatfemales.json";
         var spec7 = "./Visualisations/heatmales.json";
         var spec8 = "./Visualisations/languagesmap.json"
+        var spec9 = "./Visualisations/occupationbarchart.json"
+        var spec10 = "./Visualisations/industrybarchart.json" 
+        var spec11 = "./Visualisations/educationbystate.json"
+        var spec12 = "./Visualisations/educationbyarea.json" 
+
 
         const switchButton = document.getElementById('switchButton');
         const defaultView = document.getElementById('defaultView');
         const detailedView = document.getElementById('detailedView');
+
+        const switchButton2 = document.getElementById('switchButton2');
+        const defaultView2 = document.getElementById('defaultView2');
+        const detailedView2 = document.getElementById('detailedView2');
 
         switchButton.addEventListener('click', () => {
         if (defaultView.style.display !== 'none') {
@@ -138,6 +186,22 @@
             defaultView.style.display = 'block';
             detailedView.style.display = 'none';
             switchButton.textContent = 'Switch to Detailed View';
+        }
+        });
+
+        switchButton2.addEventListener('click', () => {
+        if (defaultView2.style.display !== 'none') {
+            defaultView2.style.display = 'none';
+            detailedView2.style.display = 'block';
+            switchButton2.textContent = 'Switch to State View';
+            // Embed the detailed view visualization when switching
+            vegaEmbed('#radar1', spec12, { "actions": false }).then(function (result) {
+                // Access the Vega view instance as result.view
+            }).catch(console.error);
+        } else {
+            defaultView2.style.display = 'block';
+            detailedView2.style.display = 'none';
+            switchButton2.textContent = 'Switch to Area View';
         }
         });
 
@@ -172,9 +236,16 @@
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     
-        vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+        vegaEmbed('#occupationbarchart', spec9, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
+        vegaEmbed('#industrybarchart', spec10, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        vegaEmbed('#radar', spec11, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
     </script>
 </body>
 </html>

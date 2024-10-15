@@ -1,12 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "An occupation distribution chart for Aboriginal and Torres Strait Islander people by sex.",
+    "title": "Occupation distribution",
     "data": { "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/OCCUPATION%20BY%20SEX.csv"},
     "hconcat": [{
       "transform": [{
         "filter": {"field": "sex", "equal": "Female"}
       }],
-      "title": "Female",
       "mark": {"type": "bar", "tooltip": true},
       "encoding": {
         "y": {
@@ -44,7 +43,6 @@
       "transform": [{
         "filter": {"field": "sex", "equal": "Male"}
       }],
-      "title": "Male",
       "mark": {"type": "bar", "tooltip": true},
       "encoding": {
         "y": {

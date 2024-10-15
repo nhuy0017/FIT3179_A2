@@ -1,0 +1,188 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A radar chart showing education values by class for Urban and Rural areas in Australia.",
+    "width": 650,
+    "height": 650,
+    "padding": 40,
+    "autosize": {"type": "none", "contains": "padding"},
+  
+    "signals": [
+      {"name": "radius", "update": "width / 2"},
+      {
+        "name": "areaSelector",
+        "value": "Urban",
+        "bind": {
+          "input": "select",
+          "options": ["Urban", "Rural"],
+          "name": "Select Area"
+        }
+      }
+    ],
+  
+    "data": [
+      {
+        "name": "table",
+        "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/main/data/education%20by%20area.csv",
+        "format": {"type": "csv"},
+        "transform": [
+          {
+            "type": "formula",
+            "expr": "toNumber(datum.value)",
+            "as": "value"
+          },
+          {
+            "type": "filter",
+            "expr": "datum.area == areaSelector"
+          }
+        ]
+      },
+      {
+        "name": "classes",
+        "source": "table",
+        "transform": [
+          {
+            "type": "aggregate",
+            "groupby": ["class"]
+          }
+        ]
+      }
+    ],
+  
+    "scales": [
+      {
+        "name": "angular",
+        "type": "point",
+        "range": {"signal": "[-PI, PI]"},
+        "padding": 0.5,
+        "domain": {"data": "classes", "field": "class"}
+      },
+      {
+        "name": "radial",
+        "type": "linear",
+        "range": {"signal": "[0, radius]"},
+        "zero": true,
+        "nice": false,
+        "domain": {"data": "table", "field": "value"},
+        "domainMin": 0
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "table", "field": "area"},
+        "range": {"scheme": "category10"}
+      }
+    ],
+  
+    "encode": {
+      "enter": {
+        "x": {"signal": "radius"},
+        "y": {"signal": "radius"}
+      }
+    },
+  
+    "marks": [
+      {
+        "type": "group",
+        "name": "categories",
+        "zindex": 1,
+        "from": {"data": "table"},
+        "marks": [
+          {
+            "type": "line",
+            "name": "category-line",
+            "from": {"data": "table"},
+            "encode": {
+              "enter": {
+                "interpolate": {"value": "linear-closed"},
+                "x": {"signal": "scale('radial', datum.value) * cos(scale('angular', datum.class))"},
+                "y": {"signal": "scale('radial', datum.value) * sin(scale('angular', datum.class))"},
+                "stroke": {"scale": "color", "field": "area"},
+                "strokeWidth": {"value": 2},
+                "fill": {"scale": "color", "field": "area"},
+                "fillOpacity": {"value": 0.1}
+              }
+            }
+          },
+          {
+            "type": "symbol",
+            "name": "category-point",
+            "from": {"data": "table"},
+            "encode": {
+              "enter": {
+                "x": {"signal": "scale('radial', datum.value) * cos(scale('angular', datum.class))"},
+                "y": {"signal": "scale('radial', datum.value) * sin(scale('angular', datum.class))"},
+                "size": {"value": 50},
+                "fill": {"scale": "color", "field": "area"},
+                "tooltip": {"signal": "{Class: datum.class, Value: datum.value, Area: datum.area}"}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "rule",
+        "name": "radial-grid",
+        "from": {"data": "classes"},
+        "zindex": 0,
+        "encode": {
+          "enter": {
+            "x": {"value": 0},
+            "y": {"value": 0},
+            "x2": {"signal": "radius * cos(scale('angular', datum.class))"},
+            "y2": {"signal": "radius * sin(scale('angular', datum.class))"},
+            "stroke": {"value": "lightgray"},
+            "strokeWidth": {"value": 1}
+          }
+        }
+      },
+      {
+        "type": "text",
+        "name": "class-label",
+        "from": {"data": "classes"},
+        "zindex": 1,
+        "encode": {
+          "enter": {
+            "x": {"signal": "(radius + 5) * cos(scale('angular', datum.class))"},
+            "y": {"signal": "(radius + 5) * sin(scale('angular', datum.class))"},
+            "text": {"field": "class"},
+            "align": [
+              {
+                "test": "abs(scale('angular', datum.class)) > PI / 2",
+                "value": "right"
+              },
+              {
+                "value": "left"
+              }
+            ],
+            "baseline": [
+              {
+                "test": "scale('angular', datum.class) > 0", "value": "top"
+              },
+              {
+                "test": "scale('angular', datum.class) == 0", "value": "middle"
+              },
+              {
+                "value": "bottom"
+              }
+            ],
+            "fill": {"value": "black"},
+            "fontWeight": {"value": "bold"}
+          }
+        }
+      },
+      {
+        "type": "line",
+        "name": "outer-line",
+        "from": {"data": "radial-grid"},
+        "encode": {
+          "enter": {
+            "interpolate": {"value": "linear-closed"},
+            "x": {"field": "x2"},
+            "y": {"field": "y2"},
+            "stroke": {"value": "lightgray"},
+            "strokeWidth": {"value": 1}
+          }
+        }
+      }
+    ]
+  }

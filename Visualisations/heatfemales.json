@@ -26,7 +26,8 @@
       "title": "Count of Persons",
       "scale": {
         "scheme": "tealblues"
-      }
+      },
+      "legend":null
     },
     "tooltip": [
       {"field": "category", "type": "nominal", "title": "Labour Force Status"},

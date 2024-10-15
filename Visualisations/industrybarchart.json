@@ -1,12 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "An industry distribution chart for Aboriginal and Torres Strait Islander people by sex.",
+  "title": "Industry distribution",
   "data": { "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/industry%20by%20sex.csv"},
   "hconcat": [{
     "transform": [{
       "filter": {"field": "sex", "equal": "Female"}
     }],
-    "title": "Female",
     "mark": {"type": "bar", "tooltip": true},
     "encoding": {
       "y": {
@@ -14,7 +13,7 @@
       },
       "x": {
         "aggregate": "sum", "field": "count",
-        "title": "count",
+        "title": "Count",
         "axis": {"format": "s"},
         "sort": "descending"
       },
@@ -44,7 +43,6 @@
     "transform": [{
       "filter": {"field": "sex", "equal": "Male"}
     }],
-    "title": "Male",
     "mark": {"type": "bar", "tooltip": true},
     "encoding": {
       "y": {
@@ -53,7 +51,7 @@
       },
       "x": {
         "aggregate": "sum", "field": "count",
-        "title": "count",
+        "title": "Count",
         "axis": {"format": "s"}
       },
       "color": {

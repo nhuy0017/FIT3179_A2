@@ -1,4 +1,4 @@
-* {
+/* * {
     font-family: 'Oxygen', sans-serif;
     line-height: 1.5;
   }
@@ -28,9 +28,6 @@ margin-top: 10px;
 padding-left: 10px;
 }
 
-/* .description-left {
-padding-right: 10px;
-} */
 
 .pure-g {
 margin-bottom: 25px;
@@ -40,7 +37,7 @@ margin-bottom: 25px;
 font-size: 13px;
 }
 .viz-container {
-  width: 100%; /* Adjust this value as needed */
+  width: 100%;
 }
 #viz1, #viz1_1 {
   width: 100%;
@@ -64,11 +61,11 @@ font-size: 13px;
 p {
   font-family: "Playfair Display", serif;
   font-size: 1.2rem;
-  max-width: 600px; /* Adjust this value to control line length */
+  max-width: 600px; 
   text-align: center;
 }
 
 a {
-  font-size: 0.9em; /* Smaller font size */
-  font-style: italic; /* Italicize the text */
-}
+  font-size: 0.9em;
+  font-style: italic;
+} */
