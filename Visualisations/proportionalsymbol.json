@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Number of Indigenous languages",
+  "background":"#dab56c",
   "layer": [
     {
       "data": {
@@ -9,7 +10,7 @@
       },
       "mark": "geoshape",
       "encoding": {
-        "color": {"value": "#f0f0f0"}
+        "color": {"value": "lightgrey"}
       }
     },
     {
@@ -27,7 +28,7 @@
           "scale": {"range": [100, 1000]},
           "title": "Count"
         },
-        "color": {"value": "#08306b"},
+        "color": {"value": "#362312"},
         "tooltip": [
           {"field": "state_territory", "type": "nominal", "title": "State"},
           {"field": "languages_count", "type": "quantitative", "title": "Languages Count"},
@@ -39,6 +40,6 @@
   "projection": {
     "type": "mercator"
   },
-  "width": 800,
+  "width": 700,
   "height": 600
 }

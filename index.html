@@ -15,16 +15,23 @@
 </head>
 
 <body>
+    <div class = "title_main">
     <h1>Indigenous Language Vitality and Population Insights</h1>
-    <p>This collection of data has been provided by the Australian Bureau of Statistics. Key data includes the distribution of Indigenous languages, 
-        assistance needs, language proficiency, and labour force participation, sourced from Indigenous status datasets, housing, education, 
+    <p id = "maintext">This collection of data has been provided by <b>the Australian Bureau of Statistics</b>. Key data includes the distribution of Indigenous languages, 
+        assistance needs, labour force participation, careers and educations, sourced from Indigenous status datasets, housing, education, 
         and language proficiency tables. This visualization shows the distribution of Indigenous languages, their vitality, and related socio-economic 
-        factors across Australia. It visualizes key aspects like population concentration, language proficiency, and labour force status, using a mix 
+        factors across Australia. It visualizes key aspects like population concentration, language proficiency, labour force status and highest completed education, using a mix 
         of maps, network diagrams, and other charts to provide insights into the cultural and demographic landscape of Australia's Indigenous communities.</p>  
-    
+    </div>
         <div class="main_page">
 
         <div id ="map1" class="pure-g">
+            <div class="pure-u-1">
+                <h2>Indigenous overview</h2>
+                <p>Using <b>dot maps</b>, the visualisation provides information about the Indigenous languages in Australia. 
+                   It showcases the traditional territories of various Indigenous groups and the population density of language speakers within these regions.
+                <small></br><a>Press the button to change the view perspective. Hover over the dots to reveal tooltips with additional details.</a></small></p>
+            </div>
             <div class="pure-u-1-2">
                 <div id="defaultView">
                     <div id="viz1" class="viz-container"></div>
@@ -38,13 +45,6 @@
             <div class="pure-u-1-2">
                 <img src="data/Australian-First-Nations-Flags.webp" alt="Australian First Nations Flags" style="width: 800px; ; height: 600px;"/>
             </div>
-            
-            <div class="pure-u-1">
-                <h2>Indigenous overview</h2>
-                <p>The visualization provides information about the Indigenous languages in Australia. 
-                   It showcases the traditional territories of various Indigenous groups and the population density of language speakers within these regions.
-                   <a>Press the button to change the view perspective. Hover over the dots to reveal tooltips with additional details.</a></p>
-            </div>
         </div>
 
         <div class="pure-g" id="map2">
@@ -52,10 +52,10 @@
                 <div class="description description-right">
                     <h2>Population Distribution</h2>
                     <p>This visualization depicts the total number of Aboriginal and Torres Strait Islander people across different states in Australia. 
-                        Using a Choropleth Map, it visually represents the population distribution, allowing for a clear understanding of the demographic landscape. 
+                        Using a <b>Choropleth Map</b>, it visually represents the <b>population distribution</b>, allowing for a clear understanding of the demographic landscape. 
                         Each state is colored based on the total Indigenous population, with deeper shades indicating higher numbers. This visualization aims to highlight the diversity 
                         and distribution of Indigenous populations, fostering awareness and understanding of their significance within the broader Australian context.
-                        <a>Hover over the grids to reveal tooltips with additional details.</a></p>
+                        <small></br><a>Hover over the grids to reveal tooltips with additional details.</a></small></p>
                 </div>
             </div>
             <div class="pure-u-1-2">
@@ -77,27 +77,20 @@
                 <div id="piechartfemales" class="viz-container"></div>
             </div>
             <div class="pure-u-1">
-                <p>This pie chart visualization displays the proportions of assistance needs among Indigenous peoples, specifically focusing on Aboriginal 
-                    and Torres Strait Islander communities. The chart categorizes individuals based on their assistance requirements: those who need support 
+                <p>This <b>pie chart</b> visualization displays the proportions of <b>core assistance needs</b> among Indigenous peoples. The chart categorizes individuals based on their assistance requirements: those who need support 
                     for core activities, those who require assistance but do not have Indigenous status, and those who do not require assistance. 
-                    By illustrating these distinct categories, the visualization provides insights into the varying levels of support needed within 
-                    the Indigenous population. This representation highlights the importance of understanding assistance needs to inform targeted interventions 
-                    and policies aimed at improving the well-being of Indigenous Australians. <a>Hover over the pies to reveal tooltips with additional details.</a></p>
+                    Providing insights into the varying levels of support needed within 
+                    the Indigenous population.<small></br><a>Hover over the pies to reveal tooltips with additional details.</a></small></p>
             </div>
         </div>
-
-
-
         <div id="heatmap" class="pure-g">
             <div class="pure-u-1">
                 <h2>Labour Force Status</h2>
-                <p>This heat map visualization highlights the relationship between labour force status and age groups among Indigenous Australians. 
+                <p>This <b>heat map</b> visualization highlights the relationship between <b>labour force status</b> and <b>age</b> groups among Indigenous Australians. 
                     It categorizes individuals based on four key labour force statuses: Employed, Unemployed, Not in the Labour Force, 
-                    and Labour Force Status Not Stated. The age groups are divided into 5-year intervals, ranging from 15 to 64 years old. 
-                    Each cell in the heat map represents the count of persons for a specific age group and labour force status, with the color intensity 
-                    indicating the size of the group. This visual tool provides an at-a-glance understanding of how labour force participation varies 
-                    across different age ranges, helping to identify trends and potential areas of focus for employment policies and community programs 
-                    targeting Indigenous populations. <a>Hover over the grid to reveal tooltips with additional details.</a></p>
+                    and Labour Force Status Not Stated.
+                    Each cell in the heat map represents the count of persons for a specific age group and labour force status,providing an at-a-glance understanding of how labour force participation varies 
+                    across different age ranges.<small></br><a>Hover over the grid to reveal tooltips with additional details.</a></small></p>
             </div>
             <div class="pure-u-1-2">
                 <div id="heatmapmales" class="viz-container"></div>
@@ -117,22 +110,25 @@
                 <div id="occupationbarchart" class="viz-container"></div>
             </div>
             <div class = "pure-u-1-2">
-                <p>These bar charts provide a breakdown of Australian Indigenous and Torres Strait Islander people by sex, 
-                    across different industries and occupations. They highlight the workforce participation of Indigenous men and women, 
+                <p>These <b>bar charts</b> provide a breakdown of Australian Indigenous and Torres Strait Islander people by sex, 
+                    across different <b>industries</b> and <b>occupations</b>. They highlight the workforce participation of Indigenous men and women, 
                     revealing gender representation trends across various sectors. By comparing male and female employment in different industries, 
                     the charts help identify workforce patterns, gender disparities, and areas for promoting more balanced employment opportunities for Indigenous communities. 
-                    <a>Hover over the bars to reveal tooltips with additional details.</a></p>
+                    <small></br><a>Hover over the bars to reveal tooltips with additional details.</a></small></p>
             </div>
         </div>
 
         <div id ="rada" class="pure-g">
-            <div class="pure-u-1">
+            <div class="pure-u-1-2">
                 <h2>Education of Indigenous people</h2>
-                <p>The visualization provides information about the Indigenous languages in Australia. 
-                   It showcases the traditional territories of various Indigenous groups and the population density of language speakers within these regions.
-                   <a>Press the button to change the view perspective. Hover over the dots to reveal tooltips with additional details.</a></p>
+                <p>These <b>radar charts</b> display <b>the highest school years completed</b> by Aboriginal and Torres Strait Islander people, 
+                    providing a clear comparison of educational attainment within these two groups. Each chart maps the distribution of school completion levels, 
+                    from early school years to the highest levels of secondary education. By examining these charts, we can gain insights 
+                    into the education patterns and achievements of Indigenous communities, highlighting differences or similarities in school completion rates 
+                    and identifying potential areas where educational support and development may be needed to improve outcomes for both groups.
+                    <small></br><a>Press the button to change the view perspective. Hover over the dots to reveal tooltips with additional details.</a></small></p>
             </div>
-            <div class="pure-u-1-1">
+            <div class="pure-u-1-2">
                 <div id="defaultView2">
                     <div id="radar" class="viz-container"></div>
                 </div>
@@ -143,12 +139,10 @@
             </div>           
             
         </div>
-
-
-
-
-
         </div>
+    <div class="end_information">
+        <p>Made by: Nguyen Gia Khang Huynh - 33323313 Date created: 15/10/2024</p>
+    </div>
 
     <script type="text/javascript">
         var spec1 = "./Visualisations/proportionalsymbol.json";

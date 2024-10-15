@@ -3,6 +3,7 @@
     "title": "Total Number of Aboriginal and Torres Strait Islander People by State",
     "width": 600,
     "height": 600,
+    "background":"#dab56c",
     "projection": {
       "type": "mercator"
     },
@@ -51,7 +52,7 @@
             "type": "quantitative",
             "scale": {
               "domain": [0, 300000],
-              "range": ["#f7fbff", "#08306b"]
+              "range": ["#f6d2e0", "#000080"]
             },
             "title":"Count"
           },

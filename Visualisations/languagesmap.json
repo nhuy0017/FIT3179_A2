@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background":"#dab56c",
   "width": 800,
   "height": 600,
   "title": "Languages distribution by State",
@@ -89,7 +90,7 @@
         "size": {
           "value": 100
         },
-        "color": {"value": "#08306b"},
+        "color": {"value": "#362312"},
         "tooltip": [
           {"field": "language_name", "type": "nominal", "title": "Language"},
           {"field": "language_synonym", "type": "nominal", "title": "Synonym"},

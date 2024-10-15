@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "A radar chart showing education values by class for Urban and Rural areas in Australia.",
+    "background":"#dab56c",
     "width": 650,
     "height": 650,
     "padding": 40,

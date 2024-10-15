@@ -1,6 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Males",
+    "background":"#dab56c",
     "data": {
         "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179/main/Homework10/Males.csv"
     },
@@ -50,7 +51,7 @@
         "color": {
             "field": "category", 
             "type": "nominal",
-            "scale": {"scheme": "category10"},
+            "scale": {"scheme": "paired"},
             "title": "Category",
             "legend": {
                 "labelLimit": 1300

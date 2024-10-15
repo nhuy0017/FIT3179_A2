@@ -2,6 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Occupation distribution",
     "data": { "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/OCCUPATION%20BY%20SEX.csv"},
+    "background":"#dab56c",
     "hconcat": [{
       "transform": [{
         "filter": {"field": "sex", "equal": "Female"}
