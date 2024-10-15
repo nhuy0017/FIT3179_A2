@@ -1,0 +1,25 @@
+﻿age_range,value,category
+All people,20733,need for assistance
+All people,290515,no need for assistance
+All people,15752,not stated
+<15 years,3132,need for assistance
+<15 years,99372,no need for assistance
+<15 years,4832,not stated
+15 - 24 years,1983,need for assistance
+15 - 24 years,55609,no need for assistance
+15 - 24 years,2839,not stated
+25 - 34 years,1511,need for assistance
+25 - 34 years,40829,no need for assistance
+25 - 34 years,2475,not stated
+35 - 44 years,2101,need for assistance
+35 - 44 years,33513,no need for assistance
+35 - 44 years,2033,not stated
+45 - 54 years,3493,need for assistance
+45 - 54 years,30600,no need for assistance
+45 - 54 years,1668,not stated
+55 - 64 years,3562,need for assistance
+55 - 64 years,19407,no need for assistance
+55 - 64 years,1019,not stated
+>=65 years,4942,need for assistance
+>=65 years,11183,no need for assistance
+>=65 years,889,not stated

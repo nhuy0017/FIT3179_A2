@@ -4,6 +4,8 @@
     "data": {
         "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179/main/Homework10/Females.csv"
     },
+    "width": 600,
+    "height": 600,
     "params": [
         {
             "name": "AgeRangeSelection",

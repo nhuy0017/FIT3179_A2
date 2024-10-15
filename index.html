@@ -15,47 +15,47 @@
 </head>
 
 <body>
-    <div class="main_page">
+    <h1>Indigenous Language Vitality and Population Insights</h1>
+    <p>This collection of data has been provided by the Australian Bureau of Statistics. Key data includes the distribution of Indigenous languages, 
+        assistance needs, language proficiency, and labour force participation, sourced from Indigenous status datasets, housing, education, 
+        and language proficiency tables. This visualization shows the distribution of Indigenous languages, their vitality, and related socio-economic 
+        factors across Australia. It visualizes key aspects like population concentration, language proficiency, and labour force status, using a mix 
+        of maps, network diagrams, and other charts to provide insights into the cultural and demographic landscape of Australia's Indigenous communities.</p>  
+    
+        <div class="main_page">
 
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <h1>Indigenous Language Vitality and Population Insights</h1>
-                <p>This collection of data has been provided by the Australian Bureau of Statistics. Key data includes the distribution of Indigenous languages, 
-                    assistance needs, language proficiency, and labour force participation, sourced from Indigenous status datasets, housing, education, 
-                    and language proficiency tables. This visualization shows the distribution of Indigenous languages, their vitality, and related socio-economic 
-                    factors across Australia. It visualizes key aspects like population concentration, language proficiency, and labour force status, using a mix 
-                    of maps, network diagrams, and other charts to provide insights into the cultural and demographic landscape of Australia's Indigenous communities.</p>         
+        <div id ="map1" class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="defaultView">
+                    <div id="viz1" class="viz-container"></div>
+                </div>
+                <div id="detailedView" style="display: none;">
+                    <div id="viz1_1" class="viz-container"></div>
+                </div>
+                <button id="switchButton" class="pure-button">Switch to Detailed View</button>
+            </div>
+            
+            <div class="pure-u-1-2">
+                <img src="data/Australian-First-Nations-Flags.webp" alt="Australian First Nations Flags" style="width: 800px; ; height: 600px;"/>
+            </div>
+            
+            <div class="pure-u-1">
+                <h2>Indigenous overview</h2>
+                <p>The visualization provides information about the Indigenous languages in Australia. 
+                   It showcases the traditional territories of various Indigenous groups and the population density of language speakers within these regions.
+                   <a>Press the button to change the view perspective. Hover over the dots to reveal tooltips with additional details.</a></p>
             </div>
         </div>
 
-        <div class="pure-g">
-            <button id="switchButton">Switch to Comparison View</button>
-            <div class="pure-u-1-1">
-                <div id="viz1" class="viz-container"></div>
-            </div>
-            <div class="pure-u-1-1">
-                <div id="viz1.2" class="viz-container"></div>
-            </div>
-        </div>
-
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <p>This visualization combines choropleth and dot maps to showcase the Indigenous nations' lands and the languages spoken across Australia.
-                     The choropleth layer highlights the traditional territories of various Indigenous groups, while the dot overlay represents 
-                     the population density of language speakers within these regions. This blend provides a comprehensive view of both the geographic distribution 
-                     of Indigenous peoples and the vitality of the languages spoken on their lands.</p>
-            </div>
-        </div>
-
-        <div class="pure-g">
+        <div class="pure-g" id="map2">
             <div class="pure-u-1-2">
                 <div class="description description-right">
                     <h2>Population Distribution</h2>
                     <p>This visualization depicts the total number of Aboriginal and Torres Strait Islander people across different states in Australia. 
                         Using a Choropleth Map, it visually represents the population distribution, allowing for a clear understanding of the demographic landscape. 
-                        Each state is colored based on the total Indigenous population, with deeper shades indicating higher numbers. Additionally, tooltips provide detailed insights, 
-                        displaying the counts of Aboriginal people, Torres Strait Islander people, and those identifying as both. This visualization aims to highlight the diversity 
-                        and distribution of Indigenous populations, fostering awareness and understanding of their significance within the broader Australian context.</p>
+                        Each state is colored based on the total Indigenous population, with deeper shades indicating higher numbers. This visualization aims to highlight the diversity 
+                        and distribution of Indigenous populations, fostering awareness and understanding of their significance within the broader Australian context.
+                        <a>Hover over the grids to reveal tooltips with additional details.</a></p>
                 </div>
             </div>
             <div class="pure-u-1-2">
@@ -63,32 +63,30 @@
             </div>
         </div>
 
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <h3>Core Activities Need for Assistance by Age(s)</h3>
+        <div id = "piechart" class="pure-g">
+            <div class="pure-u-1">
+                <h2>Core Activities Need for Assistance by Age(s)</h2>
             </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-1-3">
+            <!-- <div class="pure-u-1-2">
                 <div id="piechartallppl"></div>
-            </div>
-            <div class="pure-u-1-3">
+            </div> -->
+            <div class="pure-u-1-2">
                 <div id="piechartfemales"></div>
             </div>
-            <div class="pure-u-1-3">
+            <div class="pure-u-1-2">
                 <div id="piechartmales"></div>
             </div>
-        </div>
-        <div class="pure-g">
-            <div class="pure-u-1-1">
+            <div class="pure-u-1">
                 <p>This pie chart visualization displays the proportions of assistance needs among Indigenous peoples, specifically focusing on Aboriginal 
                     and Torres Strait Islander communities. The chart categorizes individuals based on their assistance requirements: those who need support 
                     for core activities, those who require assistance but do not have Indigenous status, and those who do not require assistance. 
                     By illustrating these distinct categories, the visualization provides insights into the varying levels of support needed within 
                     the Indigenous population. This representation highlights the importance of understanding assistance needs to inform targeted interventions 
-                    and policies aimed at improving the well-being of Indigenous Australians</p>
+                    and policies aimed at improving the well-being of Indigenous Australians. <a>Hover over the pies to reveal tooltips with additional details.</a></p>
             </div>
         </div>
+
+
 
         <div class="pure-g">
             <div class="pure-u-1-1">
@@ -111,7 +109,7 @@
             </div>
         </div>
 
-    </div>
+        </div>
 
     <script type="text/javascript">
         var spec1 = "./Visualisations/proportionalsymbol.json";
@@ -121,6 +119,28 @@
         var spec5 = "./Visualisations/piechartmales.json";
         var spec6 = "./Visualisations/heatfemales.json";
         var spec7 = "./Visualisations/heatmales.json";
+        var spec8 = "./Visualisations/languagesmap.json"
+
+        const switchButton = document.getElementById('switchButton');
+        const defaultView = document.getElementById('defaultView');
+        const detailedView = document.getElementById('detailedView');
+
+        switchButton.addEventListener('click', () => {
+        if (defaultView.style.display !== 'none') {
+            defaultView.style.display = 'none';
+            detailedView.style.display = 'block';
+            switchButton.textContent = 'Switch to Default View';
+            // Embed the detailed view visualization when switching
+            vegaEmbed('#viz1_1', spec8, { "actions": false }).then(function (result) {
+                // Access the Vega view instance as result.view
+            }).catch(console.error);
+        } else {
+            defaultView.style.display = 'block';
+            detailedView.style.display = 'none';
+            switchButton.textContent = 'Switch to Detailed View';
+        }
+        });
+
         // Embed the Proportional Symbol Map
         vegaEmbed('#viz1', spec1, { "actions": false }).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

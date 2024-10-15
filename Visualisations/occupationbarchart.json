@@ -1,0 +1,74 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "An occupation distribution chart for Aboriginal and Torres Strait Islander people by sex.",
+    "data": { "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/OCCUPATION%20BY%20SEX.csv"},
+    "hconcat": [{
+      "transform": [{
+        "filter": {"field": "sex", "equal": "Female"}
+      }],
+      "title": "Female",
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "y": {
+          "field": "occupation", "axis": null, "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", "field": "count",
+          "title": "count",
+          "axis": {"format": "s"},
+          "sort": "descending"
+        },
+        "color": {
+          "field": "sex",
+          "scale": {"range": ["#675193", "#ca8861"]},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "occupation", "type": "nominal", "title": "Occupation"},
+          {"field": "count", "type": "quantitative", "title": "Count"},
+          {"field": "sex", "type": "nominal", "title": "Sex"}
+        ]
+      }
+    }, {
+      "width": 20,
+      "view": {"stroke": null},
+      "mark": {
+        "type": "text",
+        "align": "center"
+      },
+      "encoding": {
+        "y": {"field": "occupation", "type": "ordinal", "axis": null, "sort": "descending"},
+        "text": {"field": "occupation"}
+      }
+    }, {
+      "transform": [{
+        "filter": {"field": "sex", "equal": "Male"}
+      }],
+      "title": "Male",
+      "mark": {"type": "bar", "tooltip": true},
+      "encoding": {
+        "y": {
+          "field": "occupation", "title": null,
+          "axis": null, "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum", "field": "count",
+          "title": "count",
+          "axis": {"format": "s"}
+        },
+        "color": {
+          "field": "sex",
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "occupation", "type": "nominal", "title": "Occupation"},
+          {"field": "count", "type": "quantitative", "title": "Count"},
+          {"field": "sex", "type": "nominal", "title": "Sex"}
+        ]
+      }
+    }],
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"grid": false}
+    }
+  }

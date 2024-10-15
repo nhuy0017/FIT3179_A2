@@ -52,7 +52,8 @@
             "scale": {
               "domain": [0, 300000],
               "range": ["#f7fbff", "#08306b"]
-            }
+            },
+            "title":"Count"
           },
           "tooltip": [
             {

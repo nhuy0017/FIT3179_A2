@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 950,
-  "height": 650,
+  "width": 800,
+  "height": 600,
+  "title": "Languages distribution by State",
   "autosize": {
     "type": "fit",
     "contains": "padding"
   },
-  "padding": { "top": 20, "left": 60, "right": 60, "bottom": 0 },
   
   "params": [
     {
@@ -34,7 +34,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/AndyLiu010802/FIT3179/main/georef-australia-state@public.json",
+        "url": "https://raw.githubusercontent.com/nhuy0017/FIT3179_A2/refs/heads/main/data/georef-australia-state%40public.json",
         "format": {
           "type": "topojson",
           "feature": "georef-australia-state@public"
@@ -93,7 +93,7 @@
         "tooltip": [
           {"field": "language_name", "type": "nominal", "title": "Language"},
           {"field": "language_synonym", "type": "nominal", "title": "Synonym"},
-          {"field": "state_territory", "type": "nominal", "title": "States Spoken"}
+          {"field": "state_territory", "type": "nominal", "title": "State"}
         ]
       }
     }
